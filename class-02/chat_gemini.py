@@ -15,7 +15,7 @@ response = client.chat.completions.create(
     model="gemini-2.0-flash",
     messages=[
         
-        {"role": "user", "content": "I am learning Gen AI form where to start with?"}
+        {"role": "user", "content": "I am learning Gen AI form where to start with?"}  #zero shot prompting
     ]
 )
 
