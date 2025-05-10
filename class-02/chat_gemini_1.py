@@ -2,9 +2,9 @@
 # from google.genai import types
 import google.generativeai as genai
 
-# client = genai.Client(api_key='AIzaSyAUXWHvYLXntUPh80qmcx0FPix-hRDe08E')
 
-genai.configure(api_key='AIzaSyAUXWHvYLXntUPh80qmcx0FPix-hRDe08E')
+
+genai.configure(api_key='GOOGLE_API_KEY')
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
