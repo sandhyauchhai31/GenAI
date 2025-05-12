@@ -1,3 +1,4 @@
+from collections import Counter
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -71,9 +72,14 @@ for i in range(5): # try 5 times
             result_value = parsed_response["content"]
             break
 
-        if parsed_response.get("step") != "output":
-            print(f"🧠: {parsed_response.get("content")}")
-            continue
-        print(f"🤖: {parsed_response.get("content")}")
-        break
+    final_results.append(result_value)
+    print(f"\n--- Run {i+1} ---")
+    for s in steps:
+        print(f'{s["step"]}: {s["content"]}')
 
+# Majority Vote
+majority = Counter(final_results).most_common(1)[0]
+print("\n✅ Final Answer (self consistency):", majority[0])
+print("🗳️ Count:", majority[1], "out of", len(final_results))
+
+        
